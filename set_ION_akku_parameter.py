@@ -13,6 +13,9 @@ FULL_VOLT = 4200
 PROTECT_VOLT = 2700
 EMPTY_VOLT = 2500
 
+# Raspberry Pi Communicates with MCU via i2c protocol.
+bus = smbus2.SMBus(DEVICE_BUS)
+
 # Set Full voltage 0x0D - 0x0E	13 - 14
 bus.write_byte_data(DEVICE_ADDR, 13, FULL_VOLT & 0xFF)
 bus.write_byte_data(DEVICE_ADDR, 14, (FULL_VOLT >> 8)& 0xFF)
